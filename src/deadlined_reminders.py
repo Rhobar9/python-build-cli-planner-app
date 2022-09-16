@@ -1,15 +1,15 @@
-from abc import ABCMeta, abstractmethod, ABC
+from abc import ABC, ABCMeta, abstractmethod
 from collections.abc import Iterable
 from dateutil.parser import parse
 from datetime import datetime
 
-class DeadlindedMetaReminder(Iterable, metaclass=ABCMeta):
+class DeadlinedMetaReminder(Iterable, metaclass=ABCMeta):
 
     @abstractmethod
     def is_due(self):
         pass
 
-class DeadlinedReminder(Iterable, ABC):
+class DeadlinedReminder(ABC, Iterable):
 
     @classmethod
     def __subclasshook__(cls, subclass):
